@@ -41,7 +41,10 @@ Route::get('/return-url', function (Request $request){
 });
 
 Route::post('/callback-url', function (Request $request){
-    dd($request->all());
+    // dd($request->all());
+    \info(['form payment gateway' => $request->all()]);
+
+    return response([], 203);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
